@@ -16,3 +16,6 @@ Main dependencies:
     - Moya
     - Realm
     - Texture
+
+Code generation - Sourcery, R.swift
+    
