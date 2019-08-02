@@ -37,6 +37,6 @@ final class IncomingBubbleNode: BubbleNode, ChatItem {
     // MARK: - Setup
     private func setupImageColor() {
         //imageNode.imageModificationBlock = ASImageNodeTintColorModificationBlock(.blue)
-        imageNode.image = R.image.chat_bubble_incoming()?.withRenderingMode(.alwaysTemplate)
+        imageNode.image = R.image.chat_bubble_incoming()
     }
 }
