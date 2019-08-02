@@ -1,0 +1,14 @@
+/* 
+  Buttons.strings
+  Chat
+
+  Created by Ujin on 8/2/19.
+  Copyright © 2019 Ujin. All rights reserved.
+*/
+
+"button.cancel" = "Cancel";
+"button.next" = "Next";
+"button.done" = "Done";
+"button.ok" = "OK";
+"button.clear" = "Clear";
+"button.delete" = "Delete";

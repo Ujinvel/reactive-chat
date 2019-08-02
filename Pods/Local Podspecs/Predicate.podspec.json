@@ -1,0 +1,28 @@
+{
+  "name": "Predicate",
+  "version": "0.1.0",
+  "summary": "Swifty type-safe wrapper over NSPredicate.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/hawkdp/Predicate",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hawkdp": "igor.teltov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/hawkdp/Predicate.git",
+    "tag": "0.1.0"
+  },
+  "swift_version": "4.1",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": "Predicate/Classes/**/*",
+  "dependencies": {
+    "Sourcery": [
+
+    ]
+  }
+}

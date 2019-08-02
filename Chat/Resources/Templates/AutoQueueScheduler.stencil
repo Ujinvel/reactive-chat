@@ -1,0 +1,15 @@
+{% for type in types.implementing.AutoQueueScheduler %}
+// sourcery:inline:auto:{{ type.name }}.AutoQueueScheduler
+// DO NOT EDIT
+lazy var backgroundConcurentQueue: DispatchQueue = {
+return DispatchQueue(label: "\({{ type.name }}.self)", qos: .userInitiated, attributes: .concurrent)
+}()
+lazy var backgroundConcurentSheduler: QueueScheduler = {
+return QueueScheduler(qos: .userInitiated,
+name: "\({{ type.name }}.self)",
+targeting: backgroundConcurentQueue)
+}()
+// sourcery:end
+{% endfor %}
+
+

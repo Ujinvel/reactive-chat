@@ -1,0 +1,14 @@
+sources:
+    include:
+        - Chat/Domain/UseCases
+        - Chat/Domain/Entities
+        - Chat/Platform/Entities
+        - Chat/Platform/DataBase
+        - Chat/Resources/Templates
+    exclude:
+        - Chat/Platform/Services
+        - Chat/Resources/Generated
+templates:
+    - Chat/Resources/Templates
+output:
+    Chat/Resources/Generated

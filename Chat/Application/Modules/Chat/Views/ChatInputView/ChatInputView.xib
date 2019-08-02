@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2oH-60-vqe" customClass="ChatInputView" customModule="Chat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="484" height="276"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXa-8E-P0r">
+                    <rect key="frame" x="0.0" y="0.0" width="484" height="276"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LAH-Bz-dZv" customClass="FlexibleTextView" customModule="Chat" customModuleProvider="target">
+                            <rect key="frame" x="46" y="32" width="392" height="236"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="Kdr-xw-Shm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZc-sX-Ppo">
+                            <rect key="frame" x="440" y="128" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="MBM-Mx-yei"/>
+                                <constraint firstAttribute="height" constant="44" id="VOY-DV-hBY"/>
+                            </constraints>
+                            <state key="normal" image="chat_sent"/>
+                        </button>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="chS-Eu-1kX">
+                            <rect key="frame" x="46" y="2" width="392" height="29"/>
+                            <segments>
+                                <segment title="Outgoing"/>
+                                <segment title="Incoming"/>
+                            </segments>
+                            <connections>
+                                <action selector="sourceSegmentControlValueChanged:" destination="2oH-60-vqe" eventType="valueChanged" id="snb-zR-RfP"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <color key="backgroundColor" name="Snow"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="0xh-Ok-oNR"/>
+                        <constraint firstItem="chS-Eu-1kX" firstAttribute="trailing" secondItem="LAH-Bz-dZv" secondAttribute="trailing" id="ICZ-g7-AnQ"/>
+                        <constraint firstItem="LAH-Bz-dZv" firstAttribute="leading" secondItem="cXa-8E-P0r" secondAttribute="leading" constant="46" id="PH6-2M-liC"/>
+                        <constraint firstAttribute="trailing" secondItem="LAH-Bz-dZv" secondAttribute="trailing" constant="46" id="S3O-t1-7c1"/>
+                        <constraint firstItem="chS-Eu-1kX" firstAttribute="leading" secondItem="LAH-Bz-dZv" secondAttribute="leading" id="VPP-gk-ieC"/>
+                        <constraint firstAttribute="trailing" secondItem="RZc-sX-Ppo" secondAttribute="trailing" id="eYh-cN-TOG"/>
+                        <constraint firstItem="chS-Eu-1kX" firstAttribute="top" secondItem="cXa-8E-P0r" secondAttribute="top" constant="2" id="qlw-Qc-Y3W"/>
+                        <constraint firstItem="LAH-Bz-dZv" firstAttribute="top" secondItem="chS-Eu-1kX" secondAttribute="bottom" constant="2" id="tve-kT-qVv"/>
+                        <constraint firstItem="RZc-sX-Ppo" firstAttribute="centerY" secondItem="LAH-Bz-dZv" secondAttribute="centerY" id="yUF-tZ-qgm"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="cXa-8E-P0r" firstAttribute="leading" secondItem="O0N-qc-blM" secondAttribute="leading" id="1ff-7m-Fta"/>
+                <constraint firstItem="cXa-8E-P0r" firstAttribute="top" secondItem="O0N-qc-blM" secondAttribute="top" id="2Vt-Mi-GF3"/>
+                <constraint firstItem="O0N-qc-blM" firstAttribute="trailing" secondItem="cXa-8E-P0r" secondAttribute="trailing" id="MHs-q1-9Uz"/>
+                <constraint firstAttribute="bottom" secondItem="cXa-8E-P0r" secondAttribute="bottom" id="rJJ-u4-FHp"/>
+                <constraint firstItem="LAH-Bz-dZv" firstAttribute="bottom" secondItem="O0N-qc-blM" secondAttribute="bottom" constant="-8" id="s3l-k0-Rzn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="O0N-qc-blM"/>
+            <connections>
+                <outlet property="activeView" destination="cXa-8E-P0r" id="amy-DA-tmq"/>
+                <outlet property="sendButton" destination="RZc-sX-Ppo" id="Sa2-8t-gBC"/>
+                <outlet property="sourceSegmentControl" destination="chS-Eu-1kX" id="bhE-MA-OU7"/>
+                <outlet property="textView" destination="LAH-Bz-dZv" id="Mzj-FX-exR"/>
+            </connections>
+            <point key="canvasLocation" x="-171.19999999999999" y="-728.63568215892064"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chat_sent" width="29" height="29"/>
+        <namedColor name="Snow">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

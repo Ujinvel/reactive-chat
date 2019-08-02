@@ -1,0 +1,59 @@
+<% enum AttributeType {
+case value
+case object
+case collection
+}
+struct Attribute {
+private let variable: String
+private let variableType: String
+private let type: AttributeType
+
+init(variable: String, typeName: TypeName, type: Type?) {
+self.variable = variable
+if let type = type, type.implements["AutoQueryable"] != nil {
+self.type = .object
+self.variableType = "\(typeName.unwrappedTypeName).ObjectAttribute<\(typeName.name)>"
+} else if let genericType = typeName.generic,
+let parameter = genericType.typeParameters.first,
+["List", "Set"].contains(genericType.name)
+{
+self.type = .collection
+self.variableType = "CollectionAttribute<\(parameter.typeName.name)>"
+} else if typeName.isArray, let array = typeName.array {
+self.type = .collection
+self.variableType = "CollectionAttribute<\(array.elementTypeName.name)>"
+} else {
+self.type = .value
+self.variableType = "Attribute<\(typeName.name)>"
+}
+}
+
+var description: String {
+switch type {
+case .value:
+return "var \(variable): \(variableType) { return value(for: \"\(variable)\") }"
+case .collection:
+return "var \(variable): \(variableType) { return collection(for: \"\(variable)\") }"
+case .object:
+return "var \(variable): \(variableType) { return object(for: \"\(variable)\") }"
+}
+}
+} -%>
+import Foundation
+import Predicate
+import RealmSwift
+
+<% for type in types.implementing["AutoQueryable"] { -%>
+extension <%= type.name %>: Queryable {
+typealias Object = ObjectAttribute<<%= type.name %>>
+<%= type.accessLevel %> struct ObjectAttribute<<%= type.name %>>: ObjectAttributeType {
+let expression: Expression<<%= type.name %>>
+
+<% for variable in type.storedVariables { -%>
+<%= Attribute(variable: variable.name, typeName: variable.typeName, type: variable.type).description %>
+<% } -%>
+}
+}
+<% } -%>
+
+

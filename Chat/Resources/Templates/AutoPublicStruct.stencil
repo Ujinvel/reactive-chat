@@ -1,0 +1,11 @@
+{% for type in types.structs|public %}
+// sourcery:inline:auto:{{ type.name }}.AutoPublicStruct
+// DO NOT EDIT
+public init({% for variable in type.storedVariables %}{{variable.name}}: {{variable.typeName}}{% if not forloop.last %}, {% endif %}
+{% endfor %}) {
+{% for variable in type.storedVariables %}
+self.{{variable.name}} = {{variable.name}}
+{% endfor %}
+}
+// sourcery:end
+{% endfor %}
