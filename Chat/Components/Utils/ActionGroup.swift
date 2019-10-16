@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 /**
  Combine multiple actions into group. Combines errors and execution states of all actions.
@@ -22,7 +21,7 @@ import Result
  */
 
 final class ActionGroup {
-    private var errorSignals: [Signal<Error, NoError>] = []
+    private var errorSignals: [Signal<Error, Never>] = []
     private var isExecutingProperties: [Property<Bool>] = []
     
     func append<Input, Output, Error>(_ action: Action<Input, Output, Error>) {
@@ -31,7 +30,7 @@ final class ActionGroup {
     }
     
     /// Merges errors from all actions into one stream
-    var errors: Signal<Error, NoError> {
+    var errors: Signal<Error, Never> {
         return Signal.merge(errorSignals)
     }
     

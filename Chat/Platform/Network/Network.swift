@@ -7,24 +7,21 @@
 //
 
 import Moya
-import Result
 import ReactiveSwift
-import class Alamofire.ServerTrustPolicyManager
-import class Alamofire.SessionManager
-import class Alamofire.SessionDelegate
-import enum Alamofire.ServerTrustPolicy
+import class Alamofire.ServerTrustManager
+import protocol Alamofire.ServerTrustEvaluating
 
 final class Network: RequestRetrier {
     let reachability: ReachabilityManager
-    var errors: Signal<DomainError, NoError> {
+    var errors: Signal<DomainError, Never> {
         return errorsPipe.output
     }
 
     private let baseURL: URL
-    private let manager: Manager
+    private let session: Session
     private let plugins: [PluginType]
     private let authPlugin = AuthPlugin()
-    private let errorsPipe = Signal<DomainError, NoError>.pipe()
+    private let errorsPipe = Signal<DomainError, Never>.pipe()
     
     // MARK: - Life cycle
     init(baseURL: URL) {
@@ -32,28 +29,15 @@ final class Network: RequestRetrier {
             let config = URLSessionConfiguration.default
             return config
         }
-        func createManager(withDisableEvaluation disableEvaluation: Bool = false) -> Manager{
-            if disableEvaluation {
-                let configuration = sessionConfiguration()
-                configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
-                configuration.timeoutIntervalForRequest = 30.0
-                let serverTrustPolicies: [String: ServerTrustPolicy] = [
-                    baseURL.absoluteString.removeSubstrings(["http://", "https://", "/api/v1"]): .disableEvaluation
-                ]
-                return Alamofire.SessionManager(
-                    configuration: configuration,
-                    serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-                )
-            } else {
-                let configuration = sessionConfiguration()
-                configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
-                configuration.timeoutIntervalForRequest = 30.0
-                configuration.urlCache = URLCache(memoryCapacity: 100_000_000, diskCapacity: 300_000_000, diskPath: nil)
-                return Manager(configuration: configuration)
-            }
+        func createManager(withDisableEvaluation disableEvaluation: Bool = false) -> Session {
+            let configuration = sessionConfiguration()
+            configuration.timeoutIntervalForRequest = 30.0
+            configuration.urlCache = URLCache(memoryCapacity: 100_000_000, diskCapacity: 300_000_000, diskPath: nil)
+            return Session(configuration: configuration)
+            
         }
         self.baseURL = baseURL
-        self.manager = createManager(withDisableEvaluation: true)
+        self.session = createManager(withDisableEvaluation: true)
         self.plugins = [authPlugin, APIResponseErrorPlugin(), UploadTimeoutPlugin()]
         self.reachability = ReachabilityManager(host: baseURL.host)
     }
@@ -65,7 +49,7 @@ final class Network: RequestRetrier {
     
     func makeProvider<Target: RequestConvertible>() -> NetworkProvider<Target> {
         let provider = NetworkProvider<Target>(baseURL: baseURL,
-                                               manager: manager,
+                                               session: session,
                                                plugins: plugins,
                                                requestRetrier: self)
         return provider

@@ -9,7 +9,6 @@
 import UIKit
 import ReactiveCocoa
 import ReactiveSwift
-import Result
 
 class BaseVC: UIViewController {
     // MARK: - Controls
@@ -27,7 +26,7 @@ class BaseVC: UIViewController {
     
     // MARK: - Properties
     private(set)lazy var isActive: Property<Bool> = Property(initial: false, then: reactive.isActive)
-    private let activityIndicator = Signal<Bool, NoError>.pipe()
+    private let activityIndicator = Signal<Bool, Never>.pipe()
     
     // MARK: - Life cycle
     override func viewDidLoad() {

@@ -13,13 +13,13 @@ target 'Chat' do
     pod 'SwiftLint'
 
     # Reactive
-    pod 'ReactiveCocoa', '~> 9.0'
-    pod 'ReactiveSwift', '~> 5.0'
+    pod 'ReactiveCocoa', '~> 10.1.0'
+    pod 'ReactiveSwift', '~> 6.1.0'
 
     # Network
     pod 'Bagel', '~>  1.3.2'
-    pod 'Moya', '~> 13.0'
-    pod 'Moya/ReactiveSwift', '~> 13.0'
+    pod 'Moya', '~> 14.0.0-beta.4'
+    pod 'Moya/ReactiveSwift', '~> 14.0.0-beta.4'
     
     # UI
     pod 'Texture'

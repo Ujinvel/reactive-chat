@@ -7,14 +7,13 @@
 //
 
 import ReactiveSwift
-import Result
 
 extension SignalProducer where Error == DomainError {    
     func skipError(_ errorToSkip: Error) -> AsyncTaskResult<Result<Value, Error>> {
-        return map { Result(value: $0) }
+        return map { .success($0) }
             .flatMapError {
                 if errorToSkip == $0 {
-                    return AsyncTaskResult(value: Result(error: $0))
+                    return AsyncTaskResult(value: .failure($0))
                 }
                 return AsyncTaskResult(error: $0)
         }

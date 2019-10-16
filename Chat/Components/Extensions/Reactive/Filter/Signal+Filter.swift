@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 extension Signal where Value: Equatable {
     func filter(_ value: Value) -> Signal<Value, Error> {

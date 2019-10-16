@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 final class BackgroundWorker: NSObject {
     typealias Action = () -> Void

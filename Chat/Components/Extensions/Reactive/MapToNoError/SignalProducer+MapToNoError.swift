@@ -7,10 +7,9 @@
 //
 
 import ReactiveSwift
-import Result
 
 extension SignalProducer {
-    func mapToNoError() -> SignalProducer<Value, NoError> {
+    func mapToNoError() -> SignalProducer<Value, Never> {
         return flatMapError { _ in .empty }
     }
 }

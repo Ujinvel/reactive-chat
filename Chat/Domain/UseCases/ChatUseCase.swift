@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 protocol ChatUseCase: AutoUseCaseProvider {
     func makeMessagesDataSource() -> AnyChatDataSource<Message>

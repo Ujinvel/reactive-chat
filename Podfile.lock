@@ -1,16 +1,15 @@
 PODS:
-  - Alamofire (4.9.0)
+  - Alamofire (5.0.0-rc.2)
   - Bagel (1.3.2):
     - CocoaAsyncSocket
   - CocoaAsyncSocket (7.6.3)
-  - Moya (13.0.1):
-    - Moya/Core (= 13.0.1)
-  - Moya/Core (13.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
-  - Moya/ReactiveSwift (13.0.1):
+  - Moya (14.0.0-beta.4):
+    - Moya/Core (= 14.0.0-beta.4)
+  - Moya/Core (14.0.0-beta.4):
+    - Alamofire (= 5.0.0-rc.2)
+  - Moya/ReactiveSwift (14.0.0-beta.4):
     - Moya/Core
-    - ReactiveSwift (~> 5.0)
+    - ReactiveSwift (~> 6.0)
   - PINCache (3.0.1-beta.6):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
     - PINCache/Core (= 3.0.1-beta.6)
@@ -31,11 +30,9 @@ PODS:
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
-  - ReactiveCocoa (9.0.0):
-    - ReactiveSwift (~> 5.0)
-  - ReactiveSwift (5.0.1):
-    - Result (~> 4.1)
-  - Result (4.1.0)
+  - ReactiveCocoa (10.1.0):
+    - ReactiveSwift (~> 6.1)
+  - ReactiveSwift (6.1.0)
   - Sourcery (0.17.0)
   - SwiftDate (6.1.0)
   - SwiftLint (0.35.0)
@@ -62,12 +59,12 @@ PODS:
 
 DEPENDENCIES:
   - Bagel (~> 1.3.2)
-  - Moya (~> 13.0)
-  - Moya/ReactiveSwift (~> 13.0)
+  - Moya (~> 14.0.0-beta.4)
+  - Moya/ReactiveSwift (~> 14.0.0-beta.4)
   - Predicate (from `./Predicate`)
   - R.swift (~> 5.0.3)
-  - ReactiveCocoa (~> 9.0)
-  - ReactiveSwift (~> 5.0)
+  - ReactiveCocoa (~> 10.1.0)
+  - ReactiveSwift (~> 6.1.0)
   - Sourcery
   - SwiftDate (~> 6.1.0)
   - SwiftLint
@@ -86,7 +83,6 @@ SPEC REPOS:
     - R.swift.Library
     - ReactiveCocoa
     - ReactiveSwift
-    - Result
     - Sourcery
     - SwiftDate
     - SwiftLint
@@ -97,24 +93,23 @@ EXTERNAL SOURCES:
     :path: "./Predicate"
 
 SPEC CHECKSUMS:
-  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
   Bagel: 199e0105ac694d6eee9db54dd006c940da6ce81b
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Moya: 53fa45a72929809e0b8bba44a0a53d8d0827bcfe
   PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
   PINOperation: 24b774353ca248fcf87d67b2d61eef42087c125a
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
   Predicate: 70b3cf124f7061f636bceba7f72bca88ea028217
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
-  ReactiveCocoa: 29709cf0cc7502ddd04a51220e10ee0336d8bec8
-  ReactiveSwift: cac20a5bbe560c5806bd29c0fccf90d03b996ac1
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  ReactiveCocoa: 2f1d942d79072eded6d8c3bc7c2a641d40855a56
+  ReactiveSwift: b78c7259f8ca46368238c895ae33a6a3bf9f811c
   Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
 
-PODFILE CHECKSUM: 8f82d7bd8f8bb674edc9ff15d8d9436bb6a878c1
+PODFILE CHECKSUM: b96640c2a130e7c0ca430d42a540b925f241baec
 
 COCOAPODS: 1.8.4

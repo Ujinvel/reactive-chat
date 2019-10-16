@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 extension Signal {
     func trigger() -> Signal<Void, Error> {

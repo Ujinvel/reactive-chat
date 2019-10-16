@@ -7,9 +7,8 @@
 //
 
 import ReactiveSwift
-import Result
 
 typealias AsyncTaskResult<T> = SignalProducer<T, DomainError>
-typealias AsyncTaskValue<T> = SignalProducer<T, NoError>
+typealias AsyncTaskValue<T> = SignalProducer<T, Never>
 typealias TriggerValue = AsyncTaskValue<Void>
 typealias TriggerResult = AsyncTaskResult<Void>
