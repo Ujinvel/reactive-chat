@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		088300962357B4CC00511A92 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 088300952357B4CC00511A92 /* Cartfile */; };
+		088300992357B65A00511A92 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 088300982357B65A00511A92 /* Realm.framework */; };
+		0883009A2357B66D00511A92 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9323F7E722F21DD400129808 /* RealmSwift.framework */; };
 		9323F7D722F21B5C00129808 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F6F4A222F200E2003AD55C /* Chat.storyboard */; };
 		9323F7D822F21B6200129808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F6F4A722F200E3003AD55C /* LaunchScreen.storyboard */; };
 		9323F7DC22F21B9500129808 /* AutoUseCaseProvider.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323F7D922F21B9500129808 /* AutoUseCaseProvider.generated.swift */; };
@@ -135,6 +138,8 @@
 
 /* Begin PBXFileReference section */
 		019A6F85410C732963076C35 /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
+		088300952357B4CC00511A92 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		088300982357B65A00511A92 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		846EA73F2421EE5B24568072 /* Pods_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9323F7D922F21B9500129808 /* AutoUseCaseProvider.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoUseCaseProvider.generated.swift; sourceTree = "<group>"; };
 		9323F7DB22F21B9500129808 /* AutoQueryable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoQueryable.generated.swift; sourceTree = "<group>"; };
@@ -274,6 +279,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0883009A2357B66D00511A92 /* RealmSwift.framework in Frameworks */,
+				088300992357B65A00511A92 /* Realm.framework in Frameworks */,
 				F1E4220A8B1440291B9561AA /* Pods_Chat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +291,7 @@
 		40AF28DDE0C5AD545AD2D914 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				088300982357B65A00511A92 /* Realm.framework */,
 				9323F7E722F21DD400129808 /* RealmSwift.framework */,
 				846EA73F2421EE5B24568072 /* Pods_Chat.framework */,
 			);
@@ -914,6 +922,7 @@
 		93F6F49222F200E2003AD55C = {
 			isa = PBXGroup;
 			children = (
+				088300952357B4CC00511A92 /* Cartfile */,
 				93A1801922F2095F004955C5 /* .swiftlint.yml */,
 				93A1801722F20959004955C5 /* .sourcery.yml */,
 				93F6F49D22F200E2003AD55C /* Chat */,
@@ -1010,6 +1019,7 @@
 				93F6F49822F200E2003AD55C /* Frameworks */,
 				93F6F49922F200E2003AD55C /* Resources */,
 				4FA74532CDE35E9D4F0E056F /* [CP] Embed Pods Frameworks */,
+				088300972357B59E00511A92 /* [Carthage] copy-frameworks */,
 			);
 			buildRules = (
 			);
@@ -1060,6 +1070,7 @@
 			files = (
 				9323F7D822F21B6200129808 /* LaunchScreen.storyboard in Resources */,
 				9323F7D722F21B5C00129808 /* Chat.storyboard in Resources */,
+				088300962357B4CC00511A92 /* Cartfile in Resources */,
 				93FA390B22F40D5A000FF42B /* ChatInputView.xib in Resources */,
 				93A1801A22F2095F004955C5 /* .swiftlint.yml in Resources */,
 				9356CBE322F219270034BE95 /* Assets.xcassets in Resources */,
@@ -1071,6 +1082,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		088300972357B59E00511A92 /* [Carthage] copy-frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			name = "[Carthage] copy-frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		3AF38099EB8E9780B4223ED4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

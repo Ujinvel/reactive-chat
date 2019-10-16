@@ -53,6 +53,105 @@ extension Reactive where Base: NSObject {
 			signalLifetime += lifetime.observeEnded(observer.sendCompleted)
 		}
 	}
+
+	private func producer<U>(
+		for keyPath: KeyPath<Base, U>,
+		transform: @escaping (Any?) -> U
+	) -> SignalProducer<U, NoError> {
+		guard let kvcKeyPath = keyPath._kvcKeyPathString else {
+			fatalError("Cannot use `producer(for:)` on a non Objective-C property.")
+		}
+
+		return SignalProducer { observer, lifetime in
+			lifetime += KeyValueObserver.observe(
+				self.base,
+				keyPath: kvcKeyPath,
+				options: [.initial, .new],
+				action: { observer.send(value: transform($0)) }
+			)
+
+			lifetime += self.lifetime.observeEnded(observer.sendCompleted)
+		}
+	}
+
+	private func signal<U>(
+		for keyPath: KeyPath<Base, U>,
+		transform: @escaping (Any?) -> U
+	) -> Signal<U, NoError> {
+		guard let kvcKeyPath = keyPath._kvcKeyPathString else {
+			fatalError("Cannot use `signal(for:)` on a non Objective-C property.")
+		}
+
+		return Signal { observer, lifetime in
+			lifetime += KeyValueObserver.observe(
+				self.base,
+				keyPath: kvcKeyPath,
+				options: [.new],
+				action: { observer.send(value: transform($0)) }
+			)
+			lifetime += self.lifetime.observeEnded(observer.sendCompleted)
+		}
+	}
+
+	/// Create a producer which sends the current value and all the subsequent
+	/// changes of the property specified by the key path.
+	///
+	/// The producer completes when the object deinitializes.
+	///
+	/// - parameters:
+	///   - keyPath: The key path of the property to be observed.
+	///
+	/// - returns: A producer emitting values of the property specified by the
+	///            key path.
+	public func producer<U>(for keyPath: KeyPath<Base, U?>) -> SignalProducer<U?, NoError> {
+		return producer(for: keyPath) { $0 as! U? }
+	}
+
+	/// Create a signal all changes of the property specified by the key path.
+	///
+	/// The signal completes when the object deinitializes.
+	///
+	/// - note:
+	///	  Does not send the initial value. See `producer(forKeyPath:)`.
+	///
+	/// - parameters:
+	///   - keyPath: The key path of the property to be observed.
+	///
+	/// - returns: A producer emitting values of the property specified by the
+	///            key path.
+	public func signal<U>(for keyPath: KeyPath<Base, U?>) -> Signal<U?, NoError> {
+		return signal(for: keyPath) { $0 as! U? }
+	}
+
+	/// Create a producer which sends the current value and all the subsequent
+	/// changes of the property specified by the key path.
+	///
+	/// The producer completes when the object deinitializes.
+	///
+	/// - parameters:
+	///   - keyPath: The key path of the property to be observed.
+	///
+	/// - returns: A producer emitting values of the property specified by the
+	///            key path.
+	public func producer<U>(for keyPath: KeyPath<Base, U>) -> SignalProducer<U, NoError> {
+		return producer(for: keyPath) { $0 as! U }
+	}
+
+	/// Create a signal all changes of the property specified by the key path.
+	///
+	/// The signal completes when the object deinitializes.
+	///
+	/// - note:
+	///	  Does not send the initial value. See `producer(forKeyPath:)`.
+	///
+	/// - parameters:
+	///   - keyPath: The key path of the property to be observed.
+	///
+	/// - returns: A producer emitting values of the property specified by the
+	///            key path.
+	public func signal<U>(for keyPath: KeyPath<Base, U>) -> Signal<U, NoError> {
+		return signal(for: keyPath) { $0 as! U }
+	}
 }
 
 extension Property where Value: OptionalProtocol {
@@ -123,7 +222,7 @@ extension BindingTarget {
 
 internal final class KeyValueObserver: NSObject {
 	typealias Action = (_ object: AnyObject?) -> Void
-	private static let context = UnsafeMutableRawPointer.allocate(bytes: 1, alignedTo: 0)
+	private static let context = UnsafeMutableRawPointer.allocate(byteCount: 1, alignment: 0)
 
 	unowned(unsafe) let unsafeObject: NSObject
 	let key: String
@@ -367,7 +466,7 @@ internal struct PropertyAttributes {
 				objectClass = objc_getClass(name) as! AnyClass?
 
 				name.deinitialize(count: length + 1)
-				name.deallocate(capacity: length + 1)
+				name.deallocate()
 			}
 		}
 
@@ -379,8 +478,8 @@ internal struct PropertyAttributes {
 		let emptyString = UnsafeMutablePointer<Int8>.allocate(capacity: 1)
 		emptyString.initialize(to: Code.nul)
 		defer {
-			emptyString.deinitialize()
-			emptyString.deallocate(capacity: 1)
+			emptyString.deinitialize(count: 1)
+			emptyString.deallocate()
 		}
 
 		var isWeak = false

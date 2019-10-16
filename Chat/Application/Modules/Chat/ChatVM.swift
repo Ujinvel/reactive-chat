@@ -134,7 +134,7 @@ final class ChatVM: NSObject, ViewModelDefault, UseCasesConsumer {
                         at indexPath: IndexPath) -> ASCellNodeBlock {
         var dateString = "N/A"
         if let date = dataSource.value.dateHeader(at: indexPath.section) {
-            dateString = DateFormatter.groupedByDate(yearEnabled: !date.isIn(date: Date(), granularity: .year)).string(from: date)
+            dateString = DateFormatter.groupedByDate(yearEnabled: !date.compare(.isSameYear(Date()))).string(from: date)
         }
         return { [cellFactory] in cellFactory.makeSectionHeader(title: dateString, inverted: false) }
     }

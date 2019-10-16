@@ -20,12 +20,11 @@ target 'Chat' do
     pod 'Bagel', '~>  1.3.2'
     pod 'Moya', '~> 13.0'
     pod 'Moya/ReactiveSwift', '~> 13.0'
-    pod 'Predicate', :path => './Predicate'
     
     # UI
     pod 'Texture'
-    pod 'SwiftDate', '~>  4.5.1'
+    pod 'SwiftDate', '~>  6.1.0'
     
     # DB
-    pod 'RealmSwift'
+    pod 'Predicate', :path => './Predicate'
 end
