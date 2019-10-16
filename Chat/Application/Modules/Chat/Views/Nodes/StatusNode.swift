@@ -23,7 +23,7 @@ final class StatusNode: ASDisplayNode {
          messageType: NodeMessageType) {
         super.init()
         var statusImage: UIImage!
-        var textColor: UIColor!
+        var textColor: UIColor = .white
         switch messageType {
         case .outgoing:
             textColor = .white
@@ -34,7 +34,7 @@ final class StatusNode: ASDisplayNode {
             
         }
         let font = UIFont.systemFont(ofSize: 10, weight: .semibold)
-        let attribites: [NSAttributedStringKey: Any] = [.foregroundColor: textColor,
+        let attribites: [NSAttributedString.Key: Any] = [.foregroundColor: textColor,
                                                         .font: font]
         dateNode.attributedText = NSAttributedString(string: dateString, attributes: attribites)
         statusImageNode.image = statusImage

@@ -21,7 +21,7 @@ struct DomainErrorAlert: AlertRepresentable {
         return [UIAlertAction(title: R.string.buttons.buttonOk(), style: .default, handler: nil)]
     }
     
-    var style: UIAlertControllerStyle {
+    var style: UIAlertController.Style {
         return .alert
     }
     

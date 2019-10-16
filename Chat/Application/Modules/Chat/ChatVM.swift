@@ -16,7 +16,7 @@ final class ChatVM: NSObject, ViewModelDefault, UseCasesConsumer {
     
     // MARK: - Properties
     private lazy var dataSource = Property(value: useCases.chat.makeMessagesDataSource())
-    private let dataSourceUpdates = MutableProperty<AnyChatDataSource.Updates>((insertations: (sections: .init(), items: []),
+    private let dataSourceUpdates = MutableProperty<AnyChatDataSource<Message>.Updates>((insertations: (sections: .init(), items: []),
                                                                                               deletations: (sections: .init(), items: []),
                                                                                               modifications: []))
     private let dataSourceDidLoad = MutableProperty<Void>(())
@@ -41,17 +41,18 @@ final class ChatVM: NSObject, ViewModelDefault, UseCasesConsumer {
     private func bind(_ chatInputView: ChatInputView) {
         chatInputView.sendButton.reactive.pressed = CocoaAction(sentMessageAction)
         messageToSent <~ chatInputView.textView.reactive
-            .continuousTextValues
-            .producer
-            .skipNil()
-            .combineLatest(with: chatInputView.sourceSegmentControlState.producer)
-            .map { body, controlSate -> Message in
-                Message(localId: NSUUID().uuidString,
-                        createdAt: Date(),
-                        updatedAt: Date(),
-                        sentAt: Date(),
-                        isIncoming: controlSate == .incoming,
-                        body: body)
+          .continuousTextValues
+          .producer
+          .skipEmpty()
+          .combineLatest(with: chatInputView.sourceSegmentControlState.producer)
+          .map { body, controlSate -> Message in
+            Message(localId: NSUUID().uuidString,
+                    createdAt: Date(),
+                    updatedAt: Date(),
+                    sentAt: Date(),
+                    isIncoming: controlSate == .incoming,
+                    body: body)
+        
         }
         chatInputView.textView.reactive.text <~ sentMessageAction.values.map { _ in "" }
         messageToSent <~ sentMessageAction.values.map { _ in nil }

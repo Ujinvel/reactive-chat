@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,6 @@
 		9323F7D822F21B6200129808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F6F4A722F200E3003AD55C /* LaunchScreen.storyboard */; };
 		9323F7DC22F21B9500129808 /* AutoUseCaseProvider.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323F7D922F21B9500129808 /* AutoUseCaseProvider.generated.swift */; };
 		9323F7DE22F21B9500129808 /* AutoQueryable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323F7DB22F21B9500129808 /* AutoQueryable.generated.swift */; };
-		9323F7E622F21DC600129808 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9323F7E422F21D7C00129808 /* Realm.framework */; };
-		9323F7E822F21DD400129808 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9323F7E722F21DD400129808 /* RealmSwift.framework */; };
 		9328E7B722F2D95200A20F0A /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328E7B622F2D95200A20F0A /* Environment.swift */; };
 		9328E7B922F2D9B100A20F0A /* PlatformEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328E7B822F2D9B100A20F0A /* PlatformEnvironment.swift */; };
 		9328E7BC22F2DFFB00A20F0A /* ServiceContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328E7BB22F2DFFB00A20F0A /* ServiceContext.swift */; };
@@ -111,7 +109,6 @@
 		93A1800E22F2065C004955C5 /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A1800D22F2065C004955C5 /* Templates.swift */; };
 		93A1801822F20959004955C5 /* .sourcery.yml in Resources */ = {isa = PBXBuildFile; fileRef = 93A1801722F20959004955C5 /* .sourcery.yml */; };
 		93A1801A22F2095F004955C5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 93A1801922F2095F004955C5 /* .swiftlint.yml */; };
-		93A1802322F20D12004955C5 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 93A1802222F20D12004955C5 /* Cartfile */; };
 		93A1802622F21135004955C5 /* ChatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A1802522F21135004955C5 /* ChatUseCase.swift */; };
 		93EC645C22F351E8002357CC /* SignalProducerConvertible+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC645B22F351E8002357CC /* SignalProducerConvertible+Map.swift */; };
 		93EC645F22F353A5002357CC /* NetworkProvider+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC645E22F353A5002357CC /* NetworkProvider+Request.swift */; };
@@ -141,7 +138,6 @@
 		846EA73F2421EE5B24568072 /* Pods_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9323F7D922F21B9500129808 /* AutoUseCaseProvider.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoUseCaseProvider.generated.swift; sourceTree = "<group>"; };
 		9323F7DB22F21B9500129808 /* AutoQueryable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoQueryable.generated.swift; sourceTree = "<group>"; };
-		9323F7E422F21D7C00129808 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9323F7E722F21DD400129808 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		9328E7B622F2D95200A20F0A /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		9328E7B822F2D9B100A20F0A /* PlatformEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformEnvironment.swift; sourceTree = "<group>"; };
@@ -246,7 +242,6 @@
 		93A1801522F20753004955C5 /* AutoQueueScheduler.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoQueueScheduler.stencil; sourceTree = "<group>"; };
 		93A1801722F20959004955C5 /* .sourcery.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .sourcery.yml; sourceTree = "<group>"; };
 		93A1801922F2095F004955C5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		93A1802222F20D12004955C5 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		93A1802522F21135004955C5 /* ChatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUseCase.swift; sourceTree = "<group>"; };
 		93EC645B22F351E8002357CC /* SignalProducerConvertible+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignalProducerConvertible+Map.swift"; sourceTree = "<group>"; };
 		93EC645E22F353A5002357CC /* NetworkProvider+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkProvider+Request.swift"; sourceTree = "<group>"; };
@@ -279,8 +274,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9323F7E822F21DD400129808 /* RealmSwift.framework in Frameworks */,
-				9323F7E622F21DC600129808 /* Realm.framework in Frameworks */,
 				F1E4220A8B1440291B9561AA /* Pods_Chat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,8 +914,6 @@
 		93F6F49222F200E2003AD55C = {
 			isa = PBXGroup;
 			children = (
-				9323F7E422F21D7C00129808 /* Realm.framework */,
-				93A1802222F20D12004955C5 /* Cartfile */,
 				93A1801922F2095F004955C5 /* .swiftlint.yml */,
 				93A1801722F20959004955C5 /* .sourcery.yml */,
 				93F6F49D22F200E2003AD55C /* Chat */,
@@ -1019,7 +1010,6 @@
 				93F6F49822F200E2003AD55C /* Frameworks */,
 				93F6F49922F200E2003AD55C /* Resources */,
 				4FA74532CDE35E9D4F0E056F /* [CP] Embed Pods Frameworks */,
-				93A1802422F20FA8004955C5 /* [Carthage] copy-frameworks */,
 			);
 			buildRules = (
 			);
@@ -1071,7 +1061,6 @@
 				9323F7D822F21B6200129808 /* LaunchScreen.storyboard in Resources */,
 				9323F7D722F21B5C00129808 /* Chat.storyboard in Resources */,
 				93FA390B22F40D5A000FF42B /* ChatInputView.xib in Resources */,
-				93A1802322F20D12004955C5 /* Cartfile in Resources */,
 				93A1801A22F2095F004955C5 /* .swiftlint.yml in Resources */,
 				9356CBE322F219270034BE95 /* Assets.xcassets in Resources */,
 				9354A8A522F4544200206E6B /* Buttons.strings in Resources */,
@@ -1110,46 +1099,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Chat/Pods-Chat-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Bagel/Bagel.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
-				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
-				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Predicate/Predicate.framework",
-				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
-				"${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Chat/Pods-Chat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bagel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Predicate.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Chat/Pods-Chat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chat/Pods-Chat-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chat/Pods-Chat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		93A1802022F20C28004955C5 /* [CodeGen] Sourcery */ = {
@@ -1178,37 +1136,17 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
 			);
 			name = "[CodeGen] R.swift";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				$SRCROOT/Chat/Resources/Generated/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Chat/Resources/Generated\"\n";
-		};
-		93A1802422F20FA8004955C5 /* [Carthage] copy-frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-			);
-			name = "[Carthage] copy-frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Chat/Resources/Generated/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1493,7 +1431,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ujin.Chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1517,7 +1455,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ujin.Chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -30,10 +30,10 @@ final class BackgroundWorker: NSObject {
         self.thread = Thread {
             let runloop = RunLoop.current
             // put port on standby
-            runloop.add(NSMachPort(), forMode: .defaultRunLoopMode)
+           runloop.add(NSMachPort(), forMode: .default)
             while !Thread.current.isCancelled {
                 //the thread is blocked until any event of runloop was emitted
-                runloop.run(mode: .defaultRunLoopMode, before: Date.distantFuture)
+              runloop.run(mode: .default, before: Date.distantFuture)
             }
         }
         super.init()

@@ -14,7 +14,7 @@ import Result
 class BaseVC: UIViewController {
     // MARK: - Controls
     private lazy var activityIndicatorView: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = .black
@@ -50,7 +50,7 @@ class BaseVC: UIViewController {
             .observeValues { [activityIndicatorView, view] in
                 if $0 {
                     activityIndicatorView.startAnimating()
-                    view?.bringSubview(toFront: activityIndicatorView)
+                    view?.bringSubviewToFront(activityIndicatorView)
                 } else {
                     activityIndicatorView.stopAnimating()
                 }
