@@ -33,7 +33,7 @@ final class DateSectionNode: ASDisplayNode & ChatItem {
         addSubnode(backgroundNode)
         
         let font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        let attribites: [NSAttributedStringKey: Any] = [.foregroundColor: UIColor.lightGray,
+        let attribites: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.lightGray,
                                                         .font: font]
         dateNode.attributedText = NSAttributedString(string: dateString, attributes: attribites)
         if inverted {

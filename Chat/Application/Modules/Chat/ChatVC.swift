@@ -102,7 +102,7 @@ final class ChatVC: BaseVC, ViewModelOwner {
     private func setupCollectionNode() {
         collectionNode.view.showsVerticalScrollIndicator = false
         collectionNode.alpha = 0
-        collectionNode.registerSupplementaryNode(ofKind: UICollectionElementKindSectionFooter)
+        collectionNode.registerSupplementaryNode(ofKind: UICollectionView.elementKindSectionFooter)
         collectionNode.frame = view.bounds
         collectionNode.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionNode.view.contentInsetAdjustmentBehavior = .never
@@ -140,7 +140,7 @@ extension ChatVC: ASCollectionDataSource {
     
     func collectionNode(_ collectionNode: ASCollectionNode,
                         supplementaryElementKindsInSection section: Int) -> [String] {
-        return [UICollectionElementKindSectionFooter]
+        return [UICollectionView.elementKindSectionFooter]
     }
 }
 

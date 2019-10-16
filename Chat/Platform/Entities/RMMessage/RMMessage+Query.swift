@@ -12,8 +12,8 @@ import SwiftDate
 
 extension RMMessage {
     static func getMessages(for date: Date, from realm: Realm) -> Results<RMMessage> {
-        let dateEnd = date.endOfDay
-        let dateStart = date.startOfDay
+        let dateEnd = date.dateAtEndOf(.day)
+        let dateStart = date.dateAtStartOf(.day)
         return realm.objects(RMMessage.self)
             .filter {
                 $0.sentAt >= dateStart &&

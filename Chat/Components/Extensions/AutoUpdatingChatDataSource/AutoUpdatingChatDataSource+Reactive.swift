@@ -7,10 +7,9 @@
 //
 
 import ReactiveSwift
-import Result
 
-extension SignalProducerConvertible where Value: AutoUpdatingChatDataSource, Error == NoError {
-    func didReceiveUpdates() -> AsyncTaskValue<AutoUpdatingChatDataSource.Updates> {
+extension SignalProducerConvertible where Value: AutoUpdatingChatDataSource, Error == Never {
+    func didReceiveUpdates() -> AsyncTaskValue<Value.Updates> {
         return producer.flatMap(.latest) { dataSource -> AsyncTaskValue<AutoUpdatingChatDataSource.Updates> in
             AsyncTaskValue<AutoUpdatingChatDataSource.Updates> { observer, _ in
                 dataSource.didReceiveUpdates = { updates in

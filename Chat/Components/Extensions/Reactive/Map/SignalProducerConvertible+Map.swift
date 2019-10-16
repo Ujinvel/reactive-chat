@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 import Moya
 
 extension SignalProducerConvertible {
@@ -23,7 +22,7 @@ extension SignalProducerConvertible where Value == Response, Error == DomainErro
     }
 }
 
-extension SignalProducerConvertible where Value == Response, Error == NoError {
+extension SignalProducerConvertible where Value == Response, Error == Never {
     func map<T: Decodable>(_ type: T.Type) -> AsyncTaskResult<T> {
         return producer
             .attemptMap { try $0.map(T.self) }

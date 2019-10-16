@@ -8,7 +8,6 @@
 
 import RealmSwift
 import ReactiveSwift
-import Result
 
 enum DatabasePerformEnvironment {
     case `default`

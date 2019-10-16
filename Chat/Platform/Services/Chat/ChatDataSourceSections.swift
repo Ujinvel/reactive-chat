@@ -82,7 +82,7 @@ final class ChatDataSourceSections {
                         observationItemsCount: Int,
                         performOnObservationThread: @escaping (@escaping() -> Void) -> Void,
                         performOnChatSnapshotThread: ((@escaping() -> Void) -> Void)? = nil,
-                        completion: @escaping (AutoUpdatingChatDataSource.Updates?) -> Void) -> Void {
+                        completion: @escaping (AnyChatDataSource<Message>.Updates?) -> Void) -> Void {
         nonatomicIsExecuting = true
         let completionWrap: (AutoUpdatingChatDataSource.Updates?) -> Void = { updates in
             self.nonatomicIsExecuting = false

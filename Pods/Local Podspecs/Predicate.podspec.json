@@ -15,7 +15,7 @@
     "git": "https://github.com/hawkdp/Predicate.git",
     "tag": "0.1.0"
   },
-  "swift_version": "4.1",
+  "swift_versions": "4.1",
   "platforms": {
     "ios": "11.0"
   },
@@ -24,5 +24,6 @@
     "Sourcery": [
 
     ]
-  }
+  },
+  "swift_version": "4.1"
 }

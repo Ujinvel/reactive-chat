@@ -14,5 +14,5 @@ protocol AlertRepresentable {
     var title: String? { get }
     var message: String? { get }
     var actions: [UIAlertAction] { get }
-    var style: UIAlertControllerStyle { get }
+    var style: UIAlertController.Style { get }
 }

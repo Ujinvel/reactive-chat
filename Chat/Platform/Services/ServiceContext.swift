@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 final class ServiceContext {
     let configuration: PlatformEnvironment

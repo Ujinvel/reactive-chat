@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 extension Signal where Value: Collection {
     func skipEmpty() -> Signal<Value, Error> {

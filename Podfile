@@ -6,23 +6,25 @@ target 'Chat' do
     use_frameworks!
 
     # Code generation
-    pod 'R.swift', '~>  4.0.0'
+    pod 'R.swift', '~>  5.0.3'
     pod 'Sourcery'
 
     # Static code analyzer
     pod 'SwiftLint'
 
     # Reactive
-    pod 'ReactiveCocoa', '~> 8.0.0'
-    pod 'ReactiveSwift', '~> 4.0.0'
+    pod 'ReactiveCocoa', '~> 10.1.0'
+    pod 'ReactiveSwift', '~> 6.1.0'
 
     # Network
     pod 'Bagel', '~>  1.3.2'
-    pod 'Moya', '~> 12.0.0-beta.1'
-    pod 'Moya/ReactiveSwift', '~> 12.0.0-beta.1'
-    pod 'Predicate', :path => './Predicate'
+    pod 'Moya', '~> 14.0.0-beta.4'
+    pod 'Moya/ReactiveSwift', '~> 14.0.0-beta.4'
     
     # UI
     pod 'Texture'
-    pod 'SwiftDate', '~>  4.5.1'
+    pod 'SwiftDate', '~>  6.1.0'
+    
+    # DB
+    pod 'Predicate', :path => './Predicate'
 end

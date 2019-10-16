@@ -9,7 +9,6 @@
 import Foundation
 import ReactiveSwift
 import ReactiveCocoa
-import Result
 
 extension KeyboardChangeContext {
     func animate(_ animation: () -> Void) {

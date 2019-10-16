@@ -52,7 +52,11 @@ final class FlexibleTextView: UITextView {
     func commonInit() {
         textContainer.lineFragmentPadding = 0.0
         textContainer.lineBreakMode = .byWordWrapping
-        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: self)
+      
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textDidChange(_:)),
+                                               name: UITextView.textDidChangeNotification,
+                                               object: self)
     }
     
     deinit {
@@ -139,7 +143,7 @@ final class FlexibleTextView: UITextView {
         let horizontalInsets = textContainerInset.left + textContainerInset.right
         let verticalInsets = textContainerInset.top + textContainerInset.bottom
         let size = CGSize(width: frame.width - horizontalInsets,
-                          height: UILayoutFittingExpandedSize.height)
+                          height: UIView.layoutFittingExpandedSize.height)
         
         let boundingRect = string.boundingRect(with: size,
                                                options: [.usesLineFragmentOrigin,

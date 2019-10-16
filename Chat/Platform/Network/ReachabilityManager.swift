@@ -8,7 +8,6 @@
 
 import Alamofire
 import ReactiveSwift
-import Result
 
 extension Network {
     final class ReachabilityManager {
@@ -25,11 +24,11 @@ extension Network {
         init(host: String? = nil) {
             self.manager = host.flatMap(NetworkReachabilityManager.init(host:)) ??
                 NetworkReachabilityManager()
-            status = MutableProperty(manager?.networkReachabilityStatus ?? .unknown)
-            manager?.listener = { [weak self] status in
+            status = MutableProperty(manager?.status ?? .unknown)
+
+            manager?.startListening(onUpdatePerforming: { [weak self] status in
                 self?.status.value = status
-            }
-            manager?.startListening()
+            })
         }
         
         deinit {

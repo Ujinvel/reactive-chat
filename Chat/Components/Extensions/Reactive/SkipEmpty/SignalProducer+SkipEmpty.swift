@@ -7,7 +7,6 @@
 //
 
 import ReactiveSwift
-import Result
 
 extension SignalProducer where Value: Collection {
     func skipEmpty() -> SignalProducer<Value, Error> {

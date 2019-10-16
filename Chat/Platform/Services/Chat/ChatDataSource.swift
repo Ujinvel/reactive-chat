@@ -153,8 +153,8 @@ final class ChatDataSource<Item, ManagedObject: DateteIdentifiable>: AutoUpdatin
             self.performOnDataBaseThread(realmSnapshot: currentSnapShot) { [weak self] realm in
                 guard let self = self,
                     let rmObject = self.toPlatform(item, realm),
-                    let index = self.makeResults(for: rmObject.sentAt.startOfDay, realm: realm)?.index(of: rmObject),
-                    let section = self.sections.sorted.index(for: rmObject.sentAt.startOfDay),
+                    let index = self.makeResults(for: rmObject.sentAt.dateAtStartOf(.day), realm: realm)?.index(of: rmObject),
+                    let section = self.sections.sorted.index(for: rmObject.sentAt.dateAtStartOf(.day)),
                     index < self.sections.sorted[section].count else {
                         signal(nil)
                         return
@@ -514,9 +514,9 @@ extension ChatDataSource: ChatDataSourceSectionsDelegate {
         guard let object = results[safe: observationResultsIndex] else {
             fatalError(ChatDataSourceError.observationCurrentResultsIndexOutOfRange(observationResultsIndex, results.count).localizedDescription)
         }
-        guard let index = makeResults(for: object.sentAt.startOfDay, realm: realm)?.index(of: object) else {
-            fatalError(ChatDataSourceError.noItem(object.localId as! String, object.sentAt.startOfDay).localizedDescription)
+        guard let index = makeResults(for: object.sentAt.dateAtStartOf(.day), realm: realm)?.index(of: object) else {
+            fatalError(ChatDataSourceError.noItem(object.localId as! String, object.sentAt.dateAtStartOf(.day)).localizedDescription)
         }
-        return (date: object.sentAt.startOfDay, index: index)
+        return (date: object.sentAt.dateAtStartOf(.day), index: index)
     }
 }

@@ -67,7 +67,9 @@ extension DecodingError {
             return "Type mismatch '\(type)' @ \(context.keyPath)"
         case .valueNotFound(let type, let context):
             return "Value '\(type)' not found @ \(context.keyPath)"
-        }
+        @unknown default:
+            return "Unknown error"
+      }
     }
 }
 

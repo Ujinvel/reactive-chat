@@ -9,12 +9,11 @@
 import UIKit
 import ReactiveCocoa
 import ReactiveSwift
-import Result
 
 class BaseVC: UIViewController {
     // MARK: - Controls
     private lazy var activityIndicatorView: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = .black
@@ -27,7 +26,7 @@ class BaseVC: UIViewController {
     
     // MARK: - Properties
     private(set)lazy var isActive: Property<Bool> = Property(initial: false, then: reactive.isActive)
-    private let activityIndicator = Signal<Bool, NoError>.pipe()
+    private let activityIndicator = Signal<Bool, Never>.pipe()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -50,7 +49,7 @@ class BaseVC: UIViewController {
             .observeValues { [activityIndicatorView, view] in
                 if $0 {
                     activityIndicatorView.startAnimating()
-                    view?.bringSubview(toFront: activityIndicatorView)
+                    view?.bringSubviewToFront(activityIndicatorView)
                 } else {
                     activityIndicatorView.stopAnimating()
                 }

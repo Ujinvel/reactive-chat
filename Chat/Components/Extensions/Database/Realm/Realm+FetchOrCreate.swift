@@ -20,7 +20,7 @@ extension Realm {
         guard let primaryKey = T.primaryKey(), let key = key else {
             return T()
         }
-        return create(type, value: [primaryKey: key], update: true)
+        return create(type, value: [primaryKey: key], update: .all)
     }
     
     @discardableResult

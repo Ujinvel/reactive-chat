@@ -8,7 +8,6 @@
 
 import UIKit
 import ReactiveSwift
-import Result
 
 final class ApplicationCoordinator: NSObject {
     enum Flow {

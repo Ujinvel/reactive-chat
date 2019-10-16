@@ -16,6 +16,6 @@ extension Date {
         } else if isYesterday {
             return "Yesterday"
         }
-        return string(custom: "EEE d MMM")
+        return toFormat("EEE d MMM")
     }
 }

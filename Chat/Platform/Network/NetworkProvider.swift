@@ -28,9 +28,9 @@ final class NetworkProvider<Target: RequestConvertible>: MoyaProvider<Target> {
     
     weak var requestRetrier: RequestRetrier?
     
-    init(baseURL: URL, manager: Manager, plugins: [PluginType], requestRetrier: RequestRetrier? = nil) {
+    init(baseURL: URL, session: Session, plugins: [PluginType], requestRetrier: RequestRetrier? = nil) {
         self.requestRetrier = requestRetrier
-        super.init(endpointClosure: NetworkProvider.endpointMapping(for: baseURL), manager: manager, plugins: plugins)
+        super.init(endpointClosure: NetworkProvider.endpointMapping(for: baseURL), session: session, plugins: plugins)
     }
     
     @discardableResult
