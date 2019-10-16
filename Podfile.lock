@@ -65,7 +65,7 @@ DEPENDENCIES:
   - R.swift (~> 5.0.3)
   - ReactiveCocoa (~> 10.1.0)
   - ReactiveSwift (~> 6.1.0)
-  - Sourcery
+  - Sourcery (~> 0.17.0)
   - SwiftDate (~> 6.1.0)
   - SwiftLint
   - Texture
@@ -110,6 +110,6 @@ SPEC CHECKSUMS:
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
 
-PODFILE CHECKSUM: b96640c2a130e7c0ca430d42a540b925f241baec
+PODFILE CHECKSUM: c4e16e4ff53663dde686bea53b04f35dcd57b328
 
 COCOAPODS: 1.8.4

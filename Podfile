@@ -7,7 +7,7 @@ target 'Chat' do
 
     # Code generation
     pod 'R.swift', '~>  5.0.3'
-    pod 'Sourcery'
+    pod 'Sourcery', '~> 0.17.0'
 
     # Static code analyzer
     pod 'SwiftLint'
